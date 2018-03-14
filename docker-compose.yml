@@ -1,5 +1,14 @@
-rabbitmq:
-  image: rabbitmq:management
-  ports:
-    - "5672:5672"
-    - "15672:15672"
+version: "2"
+
+services: 
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  migrator:
+      image: migrator:latest
+      ports: 
+        - "8080:8080"
+      network_mode: "host"
